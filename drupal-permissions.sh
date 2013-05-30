@@ -40,34 +40,34 @@ exit 0
 while [ $# -gt 0 ]; do
   case "$1" in
     --drupal_path=*) 
-			drupal_path="${1#*=}"
-			;;
-		--drupal_user=*)
-			drupal_user="${1#*=}"
-			;;
-		--httpd_group=*)
-			httpd_group="${1#*=}"
-			;;
-		--help) print_help;;
-		*)
-			printf "Invalid argument, run --help for valid arguments.\n";
-			exit 1
-	esac
-	shift
+      drupal_path="${1#*=}"
+      ;;
+    --drupal_user=*)
+      drupal_user="${1#*=}"
+      ;;
+    --httpd_group=*)
+      httpd_group="${1#*=}"
+      ;;
+    --help) print_help;;
+    *)
+      printf "Invalid argument, run --help for valid arguments.\n";
+      exit 1
+  esac
+  shift
 done
 
 # Basic check to see if this is a valid Drupal install
 if [ -z "${drupal_path}" ] || [ ! -d "${drupal_path}/sites" ] || [ ! -f "${drupal_path}/modules/system/system.module" ]; then
-	printf "Please provide a valid Drupal path.\n"
-	print_help
-	exit 1
+  printf "Please provide a valid Drupal path.\n"
+  print_help
+  exit 1
 fi
 
 # Basic check to see if valiud user
 if [ -z "${drupal_user}" ] || [ $(id -un ${drupal_user} 2> /dev/null) != "${drupal_user}" ]; then
-	printf "Please provide a valid user.\n"
-	print_help
-	exit 1
+  printf "Please provide a valid user.\n"
+  print_help
+  exit 1
 fi
 
 # Start changing permissions
@@ -89,8 +89,8 @@ printf "Changing permissions of all directories inside all \"files\" directories
 
 for x in ./*/files; do
   printf "Changing permissions ${x} ...\n"
-	find ${x} -type d -exec chmod ug=rwx,o= '{}' \;
-	find ${x} -type f -exec chmod ug=rw,o= '{}' \;
+  find ${x} -type d -exec chmod ug=rwx,o= '{}' \;
+  find ${x} -type f -exec chmod ug=rw,o= '{}' \;
 done
 
 printf "Changing permissions of \".git\" directories and files in \"${drupal_path}\" to \"rwx------\"...\n"
