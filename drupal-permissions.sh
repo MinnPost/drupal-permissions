@@ -92,7 +92,7 @@ for x in ./*/files; do
 	find ${x} -type f -exec chmod ug=rw,o= '{}' \;
 done
 
-printf "Changing permissions of \".git\" directories and files in \"${drupal_path}/" to \"rwx------\"...\n"
+printf "Changing permissions of \".git\" directories and files in \"${drupal_path}\" to \"rwx------\"...\n"
 cd ${drupal_path}
 chmod -R u=rwx,go= .git
 chmod -R u=rwx,go= .gitignore
