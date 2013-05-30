@@ -88,6 +88,7 @@ printf "Changing permissions of all files inside all \"files\" directories in \"
 printf "Changing permissions of all directories inside all \"files\" directories in \"${drupal_path}/sites\" to \"rwxrwx---\"...\n"
 
 for x in ./*/files; do
+  printf "Changing permissions ${x} ...\n"
 	find ${x} -type d -exec chmod ug=rwx,o= '{}' \;
 	find ${x} -type f -exec chmod ug=rw,o= '{}' \;
 done
