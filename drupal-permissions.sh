@@ -96,17 +96,17 @@ done
 printf "Changing permissions of \".git\" directories and files in \"${drupal_path}\" to \"rwx------\"...\n"
 cd ${drupal_path}
 chmod -R u=rwx,go= .git
-chmod -R u=rwx,go= .gitignore
+chmod u=rwx,go= .gitignore
 
 printf "Changing permissions of various Drupal text files in \"${drupal_path}\" to \"rwx------\"...\n"
 cd ${drupal_path}
-chmod -R u=rwx,go= CHANGELOG.txt
-chmod -R u=rwx,go= COPYRIGHT.txt
-chmod -R u=rwx,go= INSTALL.mysql.txt
-chmod -R u=rwx,go= INSTALL.pgsql.txt
-chmod -R u=rwx,go= INSTALL.txt
-chmod -R u=rwx,go= LICENSE.txt
-chmod -R u=rwx,go= MAINTAINERS.txt
-chmod -R u=rwx,go= UPGRADE.txt
+chmod u=rwx,go= CHANGELOG.txt
+chmod u=rwx,go= COPYRIGHT.txt
+chmod u=rwx,go= INSTALL.mysql.txt
+chmod u=rwx,go= INSTALL.pgsql.txt
+chmod u=rwx,go= INSTALL.txt
+chmod u=rwx,go= LICENSE.txt
+chmod u=rwx,go= MAINTAINERS.txt
+chmod u=rwx,go= UPGRADE.txt
 
-echo "Done settings proper permissions on files and directories"
+echo "Done setting proper permissions on files and directories"
